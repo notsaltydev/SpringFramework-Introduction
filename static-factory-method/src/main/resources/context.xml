@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="locale" class="java.util.Locale" factory-method="getDefault" />      <!-- 1. krok factory-method="getDefault"-> to jest metoda która zostanie wywołana z klasy java.util.Locale(metoda statyczna! ważne! -->
+	<bean id="calendar" class="java.util.GregorianCalendar" factory-method="getInstance" ><!-- 2.krok -->
+	   <constructor-arg ref="locale"></constructor-arg>         <!-- 2.krok- musimy podac argument konstuktora, podajemy referencje a nie wartosc -->
+	</bean>
+	<bean id="formatter" class="java.text.SimpleDateFormat" factory-method="getInstance" /> <!-- 3.krok -->
+
+</beans>

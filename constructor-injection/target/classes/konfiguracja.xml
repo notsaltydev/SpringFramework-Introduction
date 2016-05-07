@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- tworzenie komponentow za pomoca slowa bean, wstrzykiwanie właściwosci prostych,string. int-->
+
+	<bean id="mojLogger" class="info.notsalty.springtutorial.implementation.LoggerImpl">
+		<property name="name" value="MójLogger"/><!-- w środku property ma inne wlasiicwosci -->
+		<property name="version" value="3"/>
+	</bean>
+
+	<bean id="repozytoriumUzytkownikow"
+		class="info.notsalty.springtutorial.implementation.UsersRepositoryImpl">
+		<constructor-arg index="2" name="dbName" value="db"></constructor-arg> <!-- indeksy kolejnych argumentów, liczymy od 0 czyli 0,1,2 itp... -->
+		<constructor-arg index="1" name="localization" value="http://127.0.0.1:3456"></constructor-arg>
+		
+		<constructor-arg ref="mojLogger"></constructor-arg>
+		
+	</bean>
+
+</beans>

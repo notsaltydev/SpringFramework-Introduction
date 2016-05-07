@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- //tworzenie komponentow za pomoca slowa bean -->
+
+	<bean id="mojLogger" class="info.notsalty.springtutorial.implementation.LoggerImpl"></bean>
+
+	<bean id="repozytoriumUzytkownikow"
+		class="info.notsalty.springtutorial.implementation.UsersRepositoryImpl">
+		<property name="logger" ref="mojLogger"></property>
+		</bean>
+
+</beans>
